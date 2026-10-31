@@ -1,26 +1,88 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Warm editorial canvas */
+  --background: #F8F8F5;
+  --surface: #FFFFFF;
+  --surface-subtle: #F3F3EF;
+  --foreground: #111816;
+  --muted: #57605B;
+  --muted-light: #88928C;
+  --border: rgba(17, 24, 22, 0.08);
+  --border-strong: rgba(17, 24, 22, 0.15);
+
+  /* Deep Heritage Forest Green & Fresh Lime (RevIndex inspired) */
+  --brand-forest: #0F2D17;
+  --brand-forest-hover: #153E20;
+  --brand-forest-dark: #0A1E10;
+  --brand-lime: #7AE368;
+  --brand-lime-hover: #6FD25D;
+  --brand-lime-light: #EBF8E8;
+  --brand-lime-text: #0E3512;
+
+  /* Status Colors */
+  --status-succeeding-bg: #EAF7EA;
+  --status-succeeding-text: #196928;
+  --status-succeeding-border: rgba(25, 105, 40, 0.2);
+
+  --status-emerging-bg: #EEF4FD;
+  --status-emerging-text: #1B5694;
+  --status-emerging-border: rgba(27, 86, 148, 0.2);
+
+  --status-struggling-bg: #FEF6E8;
+  --status-struggling-text: #A0600D;
+  --status-struggling-border: rgba(160, 96, 13, 0.2);
+
+  --status-failed-bg: #FDF0EF;
+  --status-failed-text: #B42318;
+  --status-failed-border: rgba(180, 35, 24, 0.2);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+* {
+  box-sizing: border-box;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
+  background-color: var(--background);
+  color: var(--foreground);
 }
 
 body {
-  background: var(--background);
+  background-color: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Custom subtle scrollbar */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #D8D8D2;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #B6B6AF;
+}
+
+/* Custom focus ring */
+:focus-visible {
+  outline: 2px solid var(--brand-forest);
+  outline-offset: 2px;
+}
+
+/* Hide scrollbar utility */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
